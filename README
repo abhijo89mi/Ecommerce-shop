@@ -1,0 +1,32 @@
+To recreate the project run these commands:
+1. python bootstrap.py
+2. ./bin/buildout
+3. Create an empty database named shop.
+4. You need to update settings.py with the following content:
+
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'shop',                      
+        'USER': 'root',                     
+        'PASSWORD': '',                  
+        'HOST': '',                      
+        'PORT': '',                      
+    }
+}
+
+
+
+4. Import the database by running the command:
+mysql -u root -p shop < db.sql
+
+4. Run the server: ./bin/django runserver
+5. Point your browser to 127.0.0.8000/admin and your done!
+
+Note :
+Admin username :admin
+Password :admin
+
+
