@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+    {% block content %}
+    <h1>Softlink: Product Catalog</h1>
+
+    {% for object in product_list %}
+    <h3><a href="product/{{ object.get_absolute_url }}">{{ object.name }}</a></h3>
+    
+    <p ALIGN=justify><IMG SRC="{{MEDIA_URL}}{{object.photo}}" ALT="Product Image" ALIGN=left width=100px>{{ object.description }}</p>
+    {% endfor %}
+ {%endblock%}

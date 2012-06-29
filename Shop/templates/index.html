@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head>
+	<title>Softlink Online Shop</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="generator" content="">
+	<meta name="robots" content="index,follow">
+	<link rel="icon" type="image/vnd.microsoft.icon" href="img/favicon.ico">
+	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+	<script type="text/javascript">
+		var baseDir = '';
+		var static_token = 'b76803cf229aaab7fbf0e3fc600e1cb7';
+		var token = 'e9c53831ce4eecfaaccab806f1dd6335';
+		var priceDisplayPrecision = 2;
+		var priceDisplayMethod = 0;
+		var roundMode = 2;
+	</script>
+		<link href="{{MEDIA_URL}}css/global.css" rel="stylesheet" type="text/css" media="all">
+        <link href="{{MEDIA_URL}}css/jquery.css" rel="stylesheet" type="text/css" media="all">
+		<script type="text/javascript" src="{{MEDIA_URL}}js/tools.js"></script>
+		<script type="text/javascript" src="{{MEDIA_URL}}js/jquery-1.js"></script>
+		<script type="text/javascript" src="{{MEDIA_URL}}js/jquery_003.js"></script>
+		<script type="text/javascript" src="{{MEDIA_URL}}js/ajax-cart.js"></script>
+		<script type="text/javascript" src="{{MEDIA_URL}}js/treeManagement.js"></script>
+		<script type="text/javascript" src="{{MEDIA_URL}}js/jquery.js"></script>
+		<link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}css/layout.css">
+        <script type="text/javascript" src="{{MEDIA_URL}}js/js.js"></script>
+
+</head>
+<body id="index">
+<!--[if lt IE 7]><div style='clear:both;height:59px;padding:0 15px 0 15px;position:relative;z-index:10000;text-align:center;'><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." /></a></div><![endif]-->
+<div id="wrapper1">
+    <div id="wrapper2">
+        <div id="wrapper3">
+	<!-- Header -->
+            <div id="header">
+                <a id="header_logo" href="#" title="Softlinkweb"><img class="logo" src="{{MEDIA_URL}}images/logo.jpg" alt="Softlinkweb"></a>
+                <div id="header_right">
+			<!-- Block currencies module -->
+                <div id="currencies_block_top">
+                    <form id="setCurrency" action="." method="post">
+                    <label>Currency:</label>
+                    <select onchange="setCurrency(this.value);">
+							<option value="2" selected="selected">Dollar</option>
+							<option value="1">Euro</option>
+							<option value="3">Pound</option>
+					</select>
+                    <input name="id_currency" id="id_currency" value="" type="hidden">
+                    <input name="SubmitCurrency" value="" type="hidden">
+                    </form>
+                </div>
+                <!-- /Block currencies module -->
+
+                <!-- Block languages module -->
+                <div id="languages_block_top">
+                    <ul id="first-languages">
+                        
+                    </ul>
+                </div>
+                <script type="text/javascript">
+                    $('ul#first-languages li:not(.selected_language)').css('opacity', 0.3);
+                    $('ul#first-languages li:not(.selected_language)').hover(function(){
+                        $(this).css('opacity', 1);
+                    }, function(){
+                        $(this).css('opacity', 0.3);
+                    });
+                </script>
+                <!-- /Block languages module -->
+
+                <!-- Block search module TOP -->
+                <div id="search_block_top">
+                    <form method="get" action="." id="searchbox">
+                        <input autocomplete="off" class="search_query ac_input" id="search_query_top" name="search_query" onfocus="if(this.value=='')this.value='';" onblur="if(this.value=='')this.value='';" type="text">
+                        <a href="javascript:document.getElementById('searchbox').submit();"></a>
+                        <input name="orderby" value="position" type="hidden">
+                        <input name="orderway" value="desc" type="hidden">
+                    </form>
+                </div>
+                <script type="text/javascript">
+                // <![CDATA[
+                
+                    $('document').ready( function() {
+                        $("#search_query_top")
+                            .autocomplete(
+                                '.', {
+                                    minChars: 3,
+                                    max: 10,
+                                    width: 500,
+                                    selectFirst: false,
+                                    scroll: false,
+                                    dataType: "json",
+                                    formatItem: function(data, i, max, value, term) {
+                                        return value;
+                                    },
+                                    parse: function(data) {
+                                        var mytab = new Array();
+                                        for (var i = 0; i < data.length; i++)
+                                            mytab[mytab.length] = { data: data[i], value: data[i].cname + ' > ' + data[i].pname };
+                                        return mytab;
+                                    },
+                                    extraParams: {
+                                        ajaxSearch: 1,
+                                        id_lang: 1
+                                    }
+                                }
+                            )
+                            .result(function(event, data, formatted) {
+                                $('#search_query_top').val(data.pname);
+                                document.location.href = data.product_link;
+                            })
+                    });
+                
+                // ]]>
+                </script>
+                <!-- /Block search module TOP --><!-- Block user information module HEADER -->
+                <ul id="header_user">
+                    <li id="shopping_cart">
+                                <a href="#" title="Your Shopping Cart">Cart:</a>
+                        <span style="display: none;" class="ajax_cart_quantity hidden">0</span>
+                        <span style="display: none;" class="ajax_cart_product_txt hidden">product</span>
+                        <span style="display: none;" class="ajax_cart_product_txt_s hidden">products</span>
+                                    
+                                <span class="ajax_cart_no_product">(empty)</span>
+                            </li>
+                </ul>
+                <!-- /Block user information module HEADER --><ul id="header_links">
+                    <li><a href="#/" class="active">home</a></li>
+                    <li><a href="#">specials</a></li>
+                    <li><a href="#">sitemap</a></li>
+                    <li class="last_item"><a href="#">contact</a></li>
+                </ul>
+                <!-- /Block permanent links module --><!-- TM categories module -->
+                <div id="tmcategories">
+                    <ul>
+                        <li class="submenu"><a href="#" title="">Receivers</a>
+                                <ul class="subcategories">
+                                    <li class="">
+                                    <a href="#" title="">DVD Receivers</a>
+                                    </li>
+                                    <li class=" last">
+                                    <a href="#" title="">CD  Receivers</a>
+                                    </li>
+                                 </ul>
+                        </li>
+                         <li class="">
+                        <a href="#" title="">Navigation</a>
+                        </li>
+                         <li class="">
+                        <a href="#" title="">Speakers</a>
+                        </li>
+                         <li class="">
+                        <a href="#" title="">Subwoofers</a>
+                        </li>
+                         <li class="">
+                        <a href="#" title="">Amplifiers</a>
+                        </li>
+                    
+                    </ul>
+                </div>
+                <!-- /TM categories module -->
+                <!-- piscesslider -->
+                <script type="text/javascript" src="{{MEDIAURL}}js/jquery_002.js"></script>
+                <div id="slide_holder"> 	
+                    
+                </div>    
+                <script type="text/javascript">
+                $(window).load(function() {
+                    $('#slider').nivoSlider({
+                        effect:'fade', //Specify sets like: 'fold,fade,sliceDown'
+                        slices:25,
+                        animSpeed:500, //Slide transition speed
+                        pauseTime:5000,
+                        startSlide:1, //Set starting Slide (0 index)
+                        directionNav:false, //Next & Prev
+                        directionNavHide:false, //Only show on hover
+                        controlNav:true, //1,2,3...
+                        controlNavThumbs:false, //Use thumbnails for Control Nav
+                        controlNavThumbsFromRel:false, //Use image rel for thumbs
+                        controlNavThumbsSearch: '.jpg', //Replace this with...
+                        controlNavThumbsReplace: '_thumb.jpg', //...this in thumb Image src
+                        keyboardNav:true, //Use left & right arrows
+                        pauseOnHover:true, //Stop animation while hovering
+                        manualAdvance:false, //Force manual transitions
+                        captionOpacity:0.8, //Universal caption opacity
+                        beforeChange: function(){},
+                        afterChange: function(){},
+                        slideshowEnd: function(){} //Triggers after all slides have been shown
+                    });
+                });
+                </script>
+                
+
+
+            </div>
+        </div>
+        <div id="columns">
+        <!-- Center -->
+            <div id="center_column" class="center_column">
+                <div class="content_extra">
+                <div class="bg_top">
+                <div class="bg_bottom">
+                <script type="text/javascript" src="{{MEDIAURL}}js/jquery_004.js"></script>
+                <script type="text/javascript">
+                var carousel_autoplay = 5;
+                var carousel_items_visible = 5;
+                var carousel_scroll = 1;
+                </script>
+                <script type="text/javascript" src="{{MEDIAURL}}js/homecarousel.js"></script>
+                <!-- MODULE Home Featured Products -->
+                <div style="display: block;" class="jcarousel-container jcarousel-container-horizontal">
+                    <div disabled="false" style="display: block;" class="jcarousel-prev jcarousel-prev-horizontal"></div>
+                    <div disabled="false" style="display: block;" class="jcarousel-next jcarousel-next-horizontal"></div>
+                    <div class="jcarousel-clip jcarousel-clip-horizontal">
+                    <ul style="width: 3460px; left: -2076px;" class="jcarousel-list jcarousel-list-horizontal" id="mycarousel">
+                            {% for object in product_list %}
+                                <li style="width: 169px;" jcarouselindex="{{object.id}}" class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal">
+                                    <div class="extra_icon"></div>
+                                    <a href="#" title="{{object.slug}}" class="product_image">
+                                    <IMG SRC="{{MEDIA_URL}}{{object.photo}}" ALT="Product Image" ></a>	
+                                    <h5><a href="{{object.slug}}" title="Philips CED228">Philips CED228</a></h5>	
+                                </li>
+                             {% endfor %}   
+                    </ul>
+                </div>
+            </div>
+<!-- /MODULE Home Featured Products --><!-- MODULE Home Featured Products -->
+                {% block content %}
+                <div id="featured-products_block_center">
+                
+                    <h4>Featured products</h4>
+                    <div class="block_content">
+                    <div class="content_extra_2">
+                    
+                        <div class="bg_top_2">
+                            <div class="bg_bottom_2">
+                            <ul>
+                                    {% for object in product_list %}
+                                    <li class="ajax_block_product">
+                                        <a class="product_image" href="#" title="">
+                                            <img src="{{MEDIA_URL}}{{object.photo}}" alt="" width=100px height=100px>
+                                        </a>
+                                        <div class="product_info">
+                                            <h5>
+                                                <a class="product_link" href="#" title="">{{object.name}} </a>
+                                            </h5>
+                                            <span class="price">{{object.price_in_dollars}}</span>
+                                
+                                                <a class="exclusive ajax_add_to_cart_button" rel="ajax_id_product_{{object.id}}" href="cart/add/{{ object.get_absolute_url }}" title="Add to cart">Add to cart</a>
+                                                <a class="button_extra_home" href="product/{{ object.get_absolute_url }}" title="View">View</a>
+                                        </div>
+                                    </li>
+                                    {% endfor %}   
+                                </ul>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            {% endblock %}
+<!-- /MODULE Home Featured Products -->		
+        </div>
+    </div>
+</div>
+</div>
+<!-- Right -->
+<div id="right_column" class="column">
+<script type="text/javascript">
+var CUSTOMIZE_TEXTFIELD = 1;
+var customizationIdMessage = 'Customization #';
+var removingLinkText = 'remove this product from my cart';
+</script>
+<!-- MODULE Block cart -->
+<div id="cart_block" class="block exclusive">
+	<h4>
+		<a href="order.php">Cart</a>
+				<span style="display: none;" id="block_cart_expand">&nbsp;</span>
+		<span style="display: inline;" id="block_cart_collapse" class="hidden">&nbsp;</span>
+			</h4>
+	<div class="block_content">
+	<!-- block summary -->
+	<div style="display: none;" id="cart_block_summary" class="collapsed">
+		<span class="ajax_cart_quantity" style="display:none;">0</span>
+		<span class="ajax_cart_product_txt_s" style="display:none">products</span>
+		<span style="display: none;" class="ajax_cart_product_txt">product</span>
+		<span class="ajax_cart_total" style="display:none">$0.00</span>
+		<span class="ajax_cart_no_product">(empty)</span>
+	</div>
+	<!-- block list of products -->
+	<div style="display: block;" id="cart_block_list" class="expanded">
+			<p id="cart_block_no_products">No products</p>
+				<div class="cart-prices">
+			<div class="cart-prices-block">
+				<span>Shipping</span>
+				<span id="cart_block_shipping_cost" class="price ajax_cart_shipping_cost">$0.00</span>
+			</div>
+									<div class="cart-prices-block">
+				<span>Total</span>
+				<span id="cart_block_total" class="price ajax_block_cart_total">$0.00</span>
+			</div>
+		</div>
+									<p id="cart-price-precisions">
+					Prices are tax included
+				</p>
+										<p id="cart-buttons">
+			<a href="order.php" class="button_cart" title="Cart">Cart</a>			<a href="order.php?step=1" id="button_order_cart" class="exclusive_cart" title="Check out">Check out</a>
+		</p>
+	</div>
+	</div>
+</div>
+<!-- /MODULE Block cart --><!-- TM Banner #1 -->
+<div class="tmbanner1">
+	<a href="product.php?id_product=21" title="Advertising"><img src="{{MEDIA_URL}}images/advertising.jpg" alt="Advertising"></a>
+</div>
+<!-- /TM Banner #1 --></div>
+	</div>
+</div>
+<!-- Footer -->
+	<div id="footer_wrapper">
+		<div id="footer">
+			<div id="tmfooterlinks">
+	<div class="extra_footer">
+		<h4>Information</h4>
+		<ul>
+			<li><a href="contact-form.php">Contact</a></li>
+			<li><a href="cms.php?id_cms=1">Delivery</a></li>
+			<li><a href="cms.php?id_cms=2">Legal Notice</a></li>
+			<li><a href="cms.php?id_cms=3">Terms and conditions</a></li>
+			<li><a href="cms.php?id_cms=4">About us</a></li>
+		</ul>
+	</div>
+	<div>
+		<h4>Our offers</h4>
+		<ul>
+			<li><a style="padding-left: 0px; margin-left: 0px;" href="new-products.php">New products</a></li>
+			<li><a href="best-sales.php">Top sellers</a></li>
+			<li><a href="prices-drop.php">Specials</a></li>
+			<li><a style="padding-left: 0px; margin-left: 0px;" href="manufacturer.php">Manufacturers</a></li>
+			<li><a href="supplier.php">Suppliers</a></li>
+		</ul>
+	</div>
+	<div>
+		<h4>Your Account</h4>
+		<ul>
+			<li><a style="padding-left: 0px; margin-left: 0px;" href="my-account.php">Your Account</a></li>
+			<li><a style="padding-left: 0px; margin-left: 0px;" href="identity.php">Personal information</a></li>
+			<li><a href="addresses.php">Addresses</a></li>
+			<li><a style="padding-left: 0px; margin-left: 0px;" href="discount.php">Discount</a></li>
+			<li><a href="history.php">Order history</a></li>
+		</ul>
+	</div>
+<div class="wrapper_footer">	<p>©2011 Powered by <a href="http://www.pixelcode.ca">Pixelcode.ca</a>. All rights reserved</p></div>
+</div>
+			<!-- [[%FOOTER_LINK]] -->
+		</div>
+	</div>
+</div>
+</div>
+	
+
+</body></html>
